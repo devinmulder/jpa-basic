@@ -8,21 +8,29 @@
     <persistence-unit name="hello">
         <properties>
             <!-- 필수 속성 -->
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+<!--            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>-->
 <!--        <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>-->
-<!--        <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>-->
+        <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+<!--        <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>-->
 
-            <property name="javax.persistence.jdbc.user" value="sa"/>
+<!--            <property name="javax.persistence.jdbc.user" value="sa"/>-->
+            <property name="javax.persistence.jdbc.user" value="root"/>
+<!--            <property name="javax.persistence.jdbc.user" value="system"/>-->
 
-            <property name="javax.persistence.jdbc.password" value=""/>
+<!--            <property name="javax.persistence.jdbc.password" value=""/>-->
+            <property name="javax.persistence.jdbc.password" value="apmsetup"/>
+<!--            <property name="javax.persistence.jdbc.password" value="oracle"/>-->
 
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
-<!--        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/schema"/>-->
-<!--        <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/schema"/>-->
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>-->
+<!--        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.40:3306/test"/>-->
+<!--        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test"/>-->
+        <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3307/test"/>
+<!--        <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>-->
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-<!--        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
-<!--        <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>-->
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>-->
+<!--        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>-->
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
+<!--        <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>-->
 
 
 
@@ -30,7 +38,8 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-<!--            <property name="hibernate.hbm2ddl.auto" value="create"/>-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--            <property name="hibernate.hbm2ddl.auto" value="none"/>-->
 
         </properties>
     </persistence-unit>
