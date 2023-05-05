@@ -13,7 +13,7 @@ public class Member1 {
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team1 team;
 
