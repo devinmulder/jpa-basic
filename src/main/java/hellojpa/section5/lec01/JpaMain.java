@@ -28,6 +28,9 @@ public class JpaMain {
             member.setTeam(team);
             em.persist(member);
 
+            em.flush();
+            em.clear();
+
             Member1 findMember = em.find(Member1.class, member.getId());
 
             Team1 findTeam = findMember.getTeam();
