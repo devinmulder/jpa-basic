@@ -1,5 +1,7 @@
 package hellojpa.section5.lec01;
 
+import hellojpa.Member;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -25,6 +27,13 @@ public class JpaMain {
             member.setUsername("member1");
             member.setTeamId(team.getId());
             em.persist(member);
+
+            Member1 findMember = em.find(Member1.class, member.getId());
+
+            Long findTeamId = findMember.getTeamId();
+            Team1 findTeam = em.find(Team1.class, findTeamId);
+
+            System.out.println("findTeam = " + findTeam);
 
             tx.commit();
         } catch (Exception e) {
