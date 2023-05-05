@@ -25,13 +25,12 @@ public class JpaMain {
 
             Member1 member = new Member1();
             member.setUsername("member1");
-            member.setTeamId(team.getId());
+            member.setTeam(team);
             em.persist(member);
 
             Member1 findMember = em.find(Member1.class, member.getId());
 
-            Long findTeamId = findMember.getTeamId();
-            Team1 findTeam = em.find(Team1.class, findTeamId);
+            Team1 findTeam = findMember.getTeam();
 
             System.out.println("findTeam = " + findTeam);
 
