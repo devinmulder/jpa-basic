@@ -1,11 +1,10 @@
 package hellojpa.section5.lec01;
 
-import hellojpa.Member;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class JpaMain {
 
@@ -33,9 +32,11 @@ public class JpaMain {
 
             Member1 findMember = em.find(Member1.class, member.getId());
 
-            Team1 findTeam = findMember.getTeam();
+            List<Member1> members = findMember.getTeam().getMembers();
 
-            System.out.println("findTeam = " + findTeam);
+            for (Member1 m : members) {
+                System.out.println("m.getUsername() = " + m.getUsername());
+            }
 
             tx.commit();
         } catch (Exception e) {
